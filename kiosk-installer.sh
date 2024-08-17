@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export PATH=/usr/sbin:$PATH
 # be new
 apt-get update
 
