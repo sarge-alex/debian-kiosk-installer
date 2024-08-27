@@ -43,6 +43,7 @@ cat > /etc/lightdm/lightdm.conf << EOF
 [SeatDefaults]
 autologin-user=kiosk
 user-session=openbox
+xserver-command=X -s 0 dpms
 EOF
 
 # create autostart
@@ -57,6 +58,10 @@ unclutter -idle 0.1 -grab -root &
 while :
 do
   xrandr --auto
+  xset s off
+  xset s noblank
+  xset -dpms
+  xset -b
   chromium \
     --no-first-run \
     --start-maximized \
